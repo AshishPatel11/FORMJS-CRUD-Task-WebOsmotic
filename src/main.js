@@ -35,13 +35,11 @@ class Main {
     //custom event listner for update
     table.addEventListener("update", () => {
       const updateData = storage.getData(tbl.updateRecordId)
-      console.log(tbl.updateRecordId)
       frm.updateForm(updateData)
     })
 
     //custom eventlistner for delete
     table.addEventListener("delete", () => {
-      console.log("deleted")
       frm.reset()
       const index = storage.delete(tbl.deleteRecordId)
       if (index !== null)

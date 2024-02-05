@@ -295,9 +295,7 @@ const formData = [
       name: 'btnSubmit',
       class: 'btn btn-block btn-primary submit',
       value: 'Submit',
-      onsubmit: function (event) {
-        event.preventDefault()
-        console.log("hello")
+      onsubmit: function () {
         // e, obj, array, dataObjArray you will get in function argument
         // e:  its button native event
         // obj: current form data in object form
