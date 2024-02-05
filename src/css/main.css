@@ -1,0 +1,67 @@
+/* write css to design form/table */
+body {
+  background: linear-gradient(135deg, #abbae6, #c65e9a);
+  background-attachment: fixed;
+}
+.form-section,
+.tableSection {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 60vw;
+  margin: 3rem auto;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.40);
+}
+.submit,
+.reset {
+  width: 100%;
+  margin: 6px 0px;
+}
+.input-container {
+  margin: 1rem 0;
+}
+.input-container:has(input[type='radio']) > label:not(.label-text),
+.input-container:has(input[type='checkbox']) > label {
+  margin: 0px 4px 0px 2px;
+}
+.label-text {
+  display: block;
+}
+.tableSection {
+  width: 90vw;
+}
+
+table,
+table tr,
+table th,
+table td {
+  border: 1px solid rgb(87, 81, 81);
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+}
+.table {
+  margin-bottom: 0;
+}
+th {
+  text-transform: capitalize;
+}
+.edit-btn,
+.delete-btn {
+  width: 56px;
+  padding: 4px;
+  font-size: 12px;
+  margin: 2px;
+}
+
+td:has(button) {
+  text-align: center;
+}
+
+.invalid-input {
+  border: 2px solid red;
+}
+thead,
+th {
+  background-color: rgb(195, 192, 192) !important;
+}
