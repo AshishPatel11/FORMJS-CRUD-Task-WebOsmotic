@@ -115,6 +115,7 @@ export default class Form {
 
   //method for filling the form with provided data
   updateForm(data) {
+    this.reset()
     for (const key in data) {
       const input = this.form.querySelectorAll(`input[key=${key}],select[key=${key}],textarea[key=${key}]`)
       this.form.querySelector("input[type=submit]").value = "Save"
@@ -133,6 +134,9 @@ export default class Form {
   //method for onclick reset button and resetting the form
   reset = () => {
     this.form.reset()
+    this.form.querySelectorAll("input[type=hidden]").forEach(elem => {
+      elem.value = ""
+    })
     this.form.querySelector("input[type=submit]").value = "Submit"
   }
 

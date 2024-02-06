@@ -77,6 +77,7 @@ const formData = [
       required: true,
       pattern: "[0-9]{10}",
       title: "Phone number with 10 digits!",
+      placeholder: 'Enter Phone Number',
       id: 'txtPhone',
       class: 'form-control',
       onchange: function () {
@@ -239,10 +240,10 @@ const formData = [
       },
       {
         innerText: 'Female',
-        value: 'Male',
+        value: 'Female',
         name: 'gender',
         attr: {
-          id: 'Male',
+          id: 'Female',
           class: 'form-check-input radioGender',
           required: true,
           onchange: function () { }, // e, obj, array, dataObjArray you will get in function argument

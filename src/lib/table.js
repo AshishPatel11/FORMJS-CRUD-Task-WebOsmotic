@@ -97,3 +97,4 @@ export default class Table {
     tbody.removeChild(tbody.querySelectorAll('tr')[index])
   }
 }
+
