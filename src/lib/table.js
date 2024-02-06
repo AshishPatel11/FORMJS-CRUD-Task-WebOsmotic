@@ -8,17 +8,20 @@ export default class Table {
     this.table = undefined
     this.updateRecordId = undefined
     this.deleteRecordId = undefined
+    this.caption = undefined
+    this.len = 0
   }
   // create methods/event to refresh table data, add data row, update data row, delete data row, etc
 
   //Method for creating the table with given data
   createTable(data) {
     //outer format of table
+    this.len = data.length
+    this.caption = this.createElements("tr", { class: "caption" }, this.container, `Total Records:- ${this.len}`)
     this.table = this.createElements("table", { class: "table" }, this.container)
     const thead = this.createElements("thead", {}, this.table)
     const tbody = this.createElements("tbody", {}, this.table)
     const theadTr = this.createElements("tr", {}, thead)
-
     //creating the headings for table
     this.headings.forEach(header => {
       this.createElements("th", {}, theadTr, header)
@@ -82,7 +85,9 @@ export default class Table {
 
   //method for appending row in table
   appendRow(data) {
+    this.len += 1
     this.createTr(data, this.container.querySelector(`tbody`))
+    this.caption.innerText = `Total Records:- ${this.len}`
   }
 
   //method for replacing row by given index
@@ -93,8 +98,10 @@ export default class Table {
 
   //method for deleting row by given index
   deleteRow(index) {
+    this.len -= 1
     const tbody = this.table.querySelector('tbody')
     tbody.removeChild(tbody.querySelectorAll('tr')[index])
+    this.caption.innerText = `Total Records:- ${this.len}`
   }
 }
 

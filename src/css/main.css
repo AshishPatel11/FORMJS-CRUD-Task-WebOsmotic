@@ -1,6 +1,9 @@
 /* write css to design form/table */
+* {
+  font-family: sans-serif;
+}
 body {
-  background: linear-gradient(135deg, #abbae6, #c65e9a);
+  background-image: linear-gradient(-225deg, #40cac8ca 0%, #c5c1ff 56%, #dea3abe6 100%);
   background-attachment: fixed;
 }
 .form-section,
@@ -38,6 +41,7 @@ table tr,
 table th,
 table td {
   border: 1px solid rgb(87, 81, 81);
+  background-color: transparent !important;
   border-collapse: collapse;
   text-align: center;
   vertical-align: middle;
