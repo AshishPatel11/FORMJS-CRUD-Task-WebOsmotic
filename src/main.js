@@ -17,10 +17,11 @@ class Main {
 
     //creating the table with data
     const table = tbl.createTable(storage.getData())
-
     //onsubmit of the form created
     frm.form.addEventListener("submit", (event) => {
       event.preventDefault()
+      if (!frm.validate())
+        return
       const userData = frm.getFormData()
       if (frm.isUpdate()) {
         const index = storage.update(userData)
@@ -34,6 +35,7 @@ class Main {
 
     //custom event listner for update
     table.addEventListener("update", () => {
+      document.documentElement.scrollTop = 0;
       const updateData = storage.getData(tbl.updateRecordId)
       frm.updateForm(updateData)
     })
@@ -56,4 +58,4 @@ class Main {
 //tableContainerId: HTML Div element id inside of which you want to create table
 // tableContainerId -> #tableDiv of current index.html
 
-const main = new Main('employeeForm', 'employeeData', 'tableDiv');
+new Main('employeeForm', 'employeeData', 'tableDiv');

@@ -5,6 +5,14 @@ export default class Form {
     // Pass formContainerId to append form element inside of HTML DIV element
     // use formData to create form
     this.createForm()
+    this.form.querySelectorAll("input, textarea, select ").forEach(input => {
+      input.addEventListener("change", () => {
+        const small = document.querySelector(`#${input.id} + small`)
+        small.innerText = ""
+        input.classList.remove("invalid-input")
+      })
+    })
+
   }
   // create methods/event to create form/ reset form/ submit form, etc
 
@@ -16,7 +24,9 @@ export default class Form {
 
       //Labels created except hidden inputs
       if (data.type !== "hidden") {
-        this.createElements("label", { for: data.attr ? data.attr.id : "", class: "label-text" }, div, data.label)
+        const label = this.createElements("label", { for: data.attr ? data.attr.id : "", class: "label-text" }, div, data.label)
+        if (data.attr ? data.attr.validate : null)
+          this.createElements("small", { class: "validate" }, label, "*")
       }
 
       // switch cases for different type of input types
@@ -54,6 +64,10 @@ export default class Form {
         default:
           this.createElements("input", { ...attr, ...rest }, div)
           break;
+      }
+
+      if (data.type !== "hidden") {
+        this.createElements("small", { class: "error-text" }, div)
       }
     })
   }
@@ -138,11 +152,42 @@ export default class Form {
       elem.value = ""
     })
     this.form.querySelector("input[type=submit]").value = "Submit"
+
+    const inputs = this.form.querySelectorAll("input, textarea, select ")
+    inputs.forEach(input => {
+      if (input.getAttribute("validate")) {
+        const small = document.querySelector(`#${input.id} + small`)
+        if (small) {
+          small.innerText = ""
+          input.classList.remove("invalid-input")
+        }
+      }
+    })
   }
 
   //returns true if the form is in the update state
   isUpdate() {
     return this.form.querySelector("input[type=submit]").value === "Save"
+  }
+
+  validate() {
+    const inputs = this.form.querySelectorAll("input, textarea, select ")
+    let validate = true
+    inputs.forEach(input => {
+      if (input.getAttribute("validate")) {
+        if (!input.value) {
+          validate = false
+          document.documentElement.scrollTop = 0;
+          const small = document.querySelector(`#${input.id} + small`)
+          small.innerText = "Please Enter The Value!"
+          input.classList.add("invalid-input")
+        }
+      }
+    })
+    if (!validate) {
+      alert("Please fill the marked fields!")
+    }
+    return validate
   }
 }
 

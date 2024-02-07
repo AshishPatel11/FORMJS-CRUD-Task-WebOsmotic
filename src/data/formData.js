@@ -29,18 +29,18 @@ const formData = [
   },
   {
     type: 'text',
-    label: 'Name *',
+    label: 'Name ',
     key: 'name',
     value: '',
     // attr is option, User can add new html element properties to it or user can remove all properties like empty object  attr: {}
     attr: {
-      pattern: '[A-Za-z]{1,16}',
+      pattern: '[ A-Za-z ]{1,16}',
       title: "Enter alphabets only with maximum length of 32 char.!",
       id: 'txtName1',
       class: 'form-control textInput',
       placeholder: 'Enter name',
       name: 'txtName',
-      required: true,
+      validate: true,
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -51,7 +51,7 @@ const formData = [
   },
   {
     type: 'email',
-    label: 'Email *',
+    label: 'Email ',
     key: 'email',
     value: '',
     attr: {
@@ -59,7 +59,7 @@ const formData = [
       class: 'form-control textInput',
       placeholder: 'Enter email',
       name: 'txtName',
-      required: true,
+      validate: true,
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -70,11 +70,11 @@ const formData = [
   },
   {
     type: 'tel',
-    label: 'Phone *',
+    label: 'Phone ',
     key: 'phone',
     value: '',
     attr: {
-      required: true,
+      validate: true,
       pattern: "[0-9]{10}",
       title: "Phone number with 10 digits!",
       placeholder: 'Enter Phone Number',
@@ -90,7 +90,7 @@ const formData = [
   },
   {
     type: 'textarea',
-    label: 'Address *',
+    label: 'Address ',
     key: 'address',
     value: '',
     attr: {
@@ -99,7 +99,7 @@ const formData = [
       placeholder: 'Enter Address',
       rows: '5',
       name: 'txtName',
-      required: true, //Add validation for required field
+      validate: true, //Add validation for validate field
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -110,7 +110,7 @@ const formData = [
   },
   {
     type: 'text',
-    label: 'Street Address *',
+    label: 'Street Address ',
     key: 'street_address',
     value: '',
     attr: {
@@ -118,7 +118,7 @@ const formData = [
       class: 'form-control textInput',
       placeholder: 'Enter Street Address',
       name: 'txtName',
-      required: true,
+      validate: true,
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -129,7 +129,7 @@ const formData = [
   },
   {
     type: 'text',
-    label: 'City *',
+    label: 'City ',
     key: 'city',
     value: '',
     attr: {
@@ -137,7 +137,7 @@ const formData = [
       class: 'form-control textInput',
       placeholder: 'Enter City',
       name: 'txtName',
-      required: true,
+      validate: true,
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -148,7 +148,7 @@ const formData = [
   },
   {
     type: 'text',
-    label: 'State *',
+    label: 'State ',
     key: 'state',
     value: '',
     attr: {
@@ -156,7 +156,7 @@ const formData = [
       class: 'form-control textInput',
       placeholder: 'Enter State',
       name: 'txtName',
-      required: true,
+      validate: true,
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -167,7 +167,7 @@ const formData = [
   },
   {
     type: 'number',
-    label: 'Pin Code *',
+    label: 'Pin Code ',
     key: 'pin_code',
     value: '',
     attr: {
@@ -175,7 +175,7 @@ const formData = [
       class: 'form-control textInput',
       placeholder: 'Enter Pin Code',
       name: 'txtName',
-      required: true,
+      validate: true,
       onchange: function () {
         if (!this.checkValidity())
           this.classList.add("invalid-input")
@@ -186,13 +186,13 @@ const formData = [
   },
   {
     type: 'select',
-    label: 'Country *',
+    label: 'Country ',
     key: 'country',
     value: [],
     attr: {
       id: 'txtCountry',
       name: 'country',
-      required: true,
+      validate: true,
       class: 'form-select columns',
       onchange: function () {
         if (!this.checkValidity())
@@ -223,7 +223,7 @@ const formData = [
   },
   {
     type: 'radio',
-    label: 'Gender *',
+    label: 'Gender ',
     key: 'gender',
     value: '',
     options: [
@@ -234,7 +234,8 @@ const formData = [
         attr: {
           id: 'Male',
           class: 'form-check-input radioGender',
-          required: true,
+          checked: true,
+          validate: true,
           onchange: function () { }, // e, obj, array, dataObjArray you will get in function argument
         },
       },
@@ -245,7 +246,7 @@ const formData = [
         attr: {
           id: 'Female',
           class: 'form-check-input radioGender',
-          required: true,
+          validate: true,
           onchange: function () { }, // e, obj, array, dataObjArray you will get in function argument
         },
       },
