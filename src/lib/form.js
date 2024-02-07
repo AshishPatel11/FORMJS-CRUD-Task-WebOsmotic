@@ -189,5 +189,6 @@ export default class Form {
     }
     return validate
   }
+
 }
 

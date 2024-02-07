@@ -103,5 +103,6 @@ export default class Table {
     tbody.removeChild(tbody.querySelectorAll('tr')[index])
     this.caption.innerText = `Total Records:- ${this.len}`
   }
+  
 }
 

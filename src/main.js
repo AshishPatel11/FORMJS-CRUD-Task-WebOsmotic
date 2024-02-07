@@ -17,6 +17,7 @@ class Main {
 
     //creating the table with data
     const table = tbl.createTable(storage.getData())
+    
     //onsubmit of the form created
     frm.form.addEventListener("submit", (event) => {
       event.preventDefault()
