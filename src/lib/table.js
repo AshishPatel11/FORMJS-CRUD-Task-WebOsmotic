@@ -1,4 +1,5 @@
 export default class Table {
+  
   constructor(tableContainerId, headers) {
     this.container = document.getElementById(tableContainerId); // Use this container to create table inside of it
     // Pass tableContainerId to append table inside of HTML DIV element

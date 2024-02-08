@@ -1,4 +1,5 @@
 export default class Form {
+  
   constructor(formContainerId, formData) {
     this.form = document.getElementById(formContainerId); //Container element from HTML in which you have to add form
     this.formObj = formData
@@ -33,7 +34,7 @@ export default class Form {
       switch (data.type) {
         //Textarea
         case "textarea":
-          this.createElements("textarea", { ...attr, ...rest }, div)
+          this.createElements("textarea", { ...attr, key: rest.key }, div)
           break;
 
         //Select list tag
@@ -75,7 +76,7 @@ export default class Form {
   //method for setting the attributes or event to the given element 
   setAttributes(element, attributes) {
     for (const key in attributes) {
-      if (["onclick", "onchange", "onsubmit", "oninvalid"].includes(key))
+      if (["onclick", "onchange", "onsubmit"].includes(key))
         element.addEventListener(key.slice(2), attributes[key])
       else
         element.setAttribute(key, attributes[key])

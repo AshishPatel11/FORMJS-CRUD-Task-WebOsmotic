@@ -5,6 +5,7 @@ import Storage from './lib/storage.js';
 import Table from './lib/table.js';
 
 class Main {
+  
   constructor(formContainerId, storageId, tableContainerId) {
     // formContainerId, storageId, tableContainerId will be in argument of constructor
     // start code to init and link form.js, storage.js, table.js
