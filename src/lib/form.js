@@ -1,5 +1,5 @@
 export default class Form {
-  
+
   constructor(formContainerId, formData) {
     this.form = document.getElementById(formContainerId); //Container element from HTML in which you have to add form
     this.formObj = formData
@@ -9,7 +9,8 @@ export default class Form {
     this.form.querySelectorAll("input, textarea, select ").forEach(input => {
       input.addEventListener("change", () => {
         const small = document.querySelector(`#${input.id} + small`)
-        small.innerText = ""
+        if (small)
+          small.innerText = ""
         input.classList.remove("invalid-input")
       })
     })
@@ -168,7 +169,7 @@ export default class Form {
 
   //returns true if the form is in the update state
   isUpdate() {
-    return this.form.querySelector("input[type=submit]").value === "Save"
+    return this.form.querySelector("#user-id").value
   }
 
   validate() {

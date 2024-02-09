@@ -14,8 +14,8 @@ const formData = [
       return Math.floor(100000 + Math.random() * 900000);
     },
     attr: {
-      class: "user id",
-      id: "user id"
+      class: "user-id",
+      id: "user-id"
     }
   },
   {
@@ -34,7 +34,7 @@ const formData = [
     value: '',
     // attr is option, User can add new html element properties to it or user can remove all properties like empty object  attr: {}
     attr: {
-      pattern: '[ A-Za-z ]{1,16}',
+      pattern: '[ A-Z0-9a-z ]{1,16}',
       title: "Enter alphabets only with maximum length of 32 char.!",
       id: 'txtName1',
       class: 'form-control textInput',

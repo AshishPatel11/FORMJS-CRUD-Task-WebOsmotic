@@ -1,15 +1,15 @@
 export default class Table {
-  
+
   constructor(tableContainerId, headers) {
     this.container = document.getElementById(tableContainerId); // Use this container to create table inside of it
     // Pass tableContainerId to append table inside of HTML DIV element
     this.headings = headers
     this.updateEvent = new Event("update")
     this.deleteEvent = new Event("delete")
-    this.table = undefined
-    this.updateRecordId = undefined
-    this.deleteRecordId = undefined
-    this.caption = undefined
+    this.table = null
+    this.updateRecordId = null
+    this.deleteRecordId = null
+    this.caption = null
     this.len = 0
   }
   // create methods/event to refresh table data, add data row, update data row, delete data row, etc
@@ -104,6 +104,6 @@ export default class Table {
     tbody.removeChild(tbody.querySelectorAll('tr')[index])
     this.caption.innerText = `Total Records:- ${this.len}`
   }
-  
+
 }
 

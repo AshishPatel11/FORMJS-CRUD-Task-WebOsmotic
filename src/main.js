@@ -5,7 +5,7 @@ import Storage from './lib/storage.js';
 import Table from './lib/table.js';
 
 class Main {
-  
+
   constructor(formContainerId, storageId, tableContainerId) {
     // formContainerId, storageId, tableContainerId will be in argument of constructor
     // start code to init and link form.js, storage.js, table.js
@@ -18,12 +18,14 @@ class Main {
 
     //creating the table with data
     const table = tbl.createTable(storage.getData())
-    
+
     //onsubmit of the form created
     frm.form.addEventListener("submit", (event) => {
       event.preventDefault()
+
       if (!frm.validate())
         return
+
       const userData = frm.getFormData()
       if (frm.isUpdate()) {
         const index = storage.update(userData)
@@ -32,6 +34,7 @@ class Main {
         storage.insert(userData)
         tbl.appendRow(userData)
       }
+
       frm.reset()
     })
 
